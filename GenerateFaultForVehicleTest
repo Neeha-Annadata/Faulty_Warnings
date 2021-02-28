@@ -1,0 +1,26 @@
+package nz.co.eroad.automation.tests.messaging.esp.fault.gen2.tamper;
+
+import nz.co.eroad.automation.tests.messaging.esp.fault.AbstractFaultTest;
+import nz.co.eroad.generator.esp.event.TamperEvent;
+import nz.co.eroad.schema.eroadtypes.Machine;
+import nz.co.eroad.schema.eroadtypes.Organisation;
+import nz.co.eroad.schema.eroadtypes.OrganisationSearchCriteria;
+import nz.co.eroad.wsdl.central.CentralException;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
+
+@Test(singleThreaded = true)
+public class GenerateFaultForVehicleTest extends AbstractFaultTest {
+
+    @Test(groups = {})
+    public void testGen2TamperEvent19CaseBreachCheckAuditReport() throws CentralException, IOException {
+        OrganisationSearchCriteria criteria = new OrganisationSearchCriteria();
+        criteria.setOrganisationName("The Warehouse Group");
+        final Organisation warehouse = organisationSupport.findOne(criteria);
+        Machine machine = machineSupport.find("7OJV7N").getResults().get(0);
+
+        TamperEvent tamper = new TamperEvent(18);
+        sendTamperEvent(machine, tamper);
+    }
+}
