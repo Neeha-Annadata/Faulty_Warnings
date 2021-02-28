@@ -135,8 +135,8 @@ under the License.
     -->
     <server>
       <id>nexus</id>
-      <username>neeharika.annadata</username>
-      <password>Island-Twist-Sale-Right-5</password>
+      <username><Provide Okta username </username>
+      <password> Provide Okta password/password>
     </server>
   </servers>
 
