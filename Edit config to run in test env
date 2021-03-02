@@ -1,0 +1,1 @@
+-ea -Dtest.env=test -Dbrowser=ch -Dgrid.enabled=false -Duser.timezone=UTC
