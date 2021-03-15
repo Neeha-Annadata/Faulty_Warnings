@@ -1,0 +1,24 @@
+package nz.co.eroad.automation.tests.messaging.esp.fault.gen2.tamper;
+
+import nz.co.eroad.automation.DepotTestCase;
+import nz.co.eroad.schema.eroadtypes.EboxMakeType;
+import nz.co.eroad.schema.eroadtypes.Machine;
+import nz.co.eroad.schema.eroadtypes.Organisation;
+import nz.co.eroad.schema.eroadtypes.OrganisationSearchCriteria;
+import nz.co.eroad.wsdl.central.CentralException;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
+
+@Test(singleThreaded = true)
+public class CreateVehicleTest extends DepotTestCase {
+
+    @Test(groups = {})
+    public void createVehicleTest() throws CentralException, IOException {
+        OrganisationSearchCriteria criteria = new OrganisationSearchCriteria();
+        criteria.setOrganisationName("The Warehouse Group");
+        final Organisation organisation = organisationSupport.findOne(criteria);
+        final Machine machine = eboxSupport.createAndGet(machineSupport.createAndGet(organisation), EboxMakeType.EHUBO_2);
+    }
+}
+
