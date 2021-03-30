@@ -135,7 +135,7 @@ under the License.
     -->
     <server>
       <id>nexus</id>
-      <username>< {Provide Okta username(Dont give @eroad.com)} </username>
+      <username> {Provide Okta username(Dont give @eroad.com)} </username>
       <password> {Provide Okta password } </password>
     </server>
   </servers>
